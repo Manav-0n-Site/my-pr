@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>👨‍💻 Manav | 🌐 Manav-0n-Site</title>
+
+  <!-- Font Awesome for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800;900&display=swap" rel="stylesheet">
+ <link rel="stylesheet" href="style.css">
+
+  <script src="https://kit.fontawesome.com/6a4e8e2f10.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+ <!-- MUSIC TOGGLE BUTTON -->
+<div class="music-toggle" id="musicToggle">
+  <i class="fa-solid fa-volume-high" id="musicOnIcon"></i>
+  <i class="fa-solid fa-volume-off" id="musicOffIcon" style="display:none;"></i>
+</div>
+
+
+
+    <!-- Theme Toggle Button -->
+<div class="theme-toggle" id="themeToggle">
+  <i class="fa-solid fa-sun" id="themeIcon"></i>
+</div>
+
+
+  <!-- Start Screen -->
+  <div class="start-screen" id="startScreen">
+    <img src="https://cdn.pixabay.com/photo/2013/07/12/15/22/keyhole-149772_640.png" alt="Vector" class="start-vector">
+    <div class="start-text">Tap on the screen to enter!</div>
+    <div class="cursor-dot" id="cursorDot"></div>
+  </div>
+
+  <audio id="bgMusic" loop>
+    <source src="music/profile-song.mp3" type="audio/mpeg">
+  </audio>
+
+  <div class="container" id="mainContent">
+    <!-- MODIFIED Head Bar: comment counter replaced with rotating messages -->
+    <div class="head-bar">
+      <div  class="stats-left" ><i class="fa-solid fa-eye"></i> <span id="viewCount">0</span></div>
+      <div class="rotating-messages" id="rotatingMessages" aria-live="polite"></div>
+      <div class="stats-right" id="likeSection"><i class="fa-regular fa-thumbs-up"></i> <span id="likeCount">0</span></div>
+    </div>
+
+    <img src="https://avatars.githubusercontent.com/u/223655314?v=4" alt="Profile" class="profile-pic">
+    <h1>Manav</h1>
+    <p class="quote"><span id="dynamicText"></span><span class="cursor">|</span></p>
+
+    <!-- PROJECTS -->
+    <div class="card">
+      <div class="card-title"> Some works</div>
+      <div class="projects-grid">
+        <a class="project-box" href="https://manav-0n-site.github.io/birthday-by-manav/" target="_blank">Birthday</a>
+        <a class="project-box" href="https://manav-0n-site.github.io/music-player/" target="_blank">Music</a>
+        <a class="project-box" href="https://manav-0n-site.github.io/portfolio-landing-page-by-Manav-prototype-/" target="_blank">Portfolio</a>
+        <a class="project-box" href="https://manav-0n-site.github.io/Image-format-Converter/" target="_blank">IFC</a>
+        <a class="project-box" href="https://manav-0n-site.github.io/Gotech/" target="_blank">GOTECH</a>
+        <a class="project-box" href="https://manav-0n-site.github.io/ZestRush-by-Manav/" target="_blank">ZestRush</a>
+        <a class="project-box" href="https://manav-0n-site.github.io/BiteBuzz-by-Manav/" target="_blank">BiteBuzz</a>
+        <a class="project-box" href="https://manav-0n-site.github.io/README/" target="_blank">ReadMe</a>
+         <a class="project-box" href="https://github.com/Manav-0n-Site?tab=repositories" target="_blank"><i class="fa-solid fa-angles-right" ></i></a>
+      </div>
+    </div>
+
+    <!-- SKILLS SECTION -->
+<div class="card skills-card">
+  <div class="card-title"> preety Good at</div>
+  <div class="skills-slider">
+    <div class="skills-track">
+      <!-- Repeat skills twice for seamless looping -->
+      <div class="skill-box"><img src="https://cdn-icons-png.flaticon.com/512/732/732212.png" alt="HTML"></div>
+      <div class="skill-box"><img src="https://cdn-icons-png.flaticon.com/512/732/732190.png" alt="CSS"></div>
+      <div class="skill-box"><img src="https://cdn-icons-png.flaticon.com/512/5968/5968292.png" alt="JavaScript"></div>
+      <div class="skill-box"><img src="https://cdn.iconscout.com/icon/free/png-512/react-1-282599.png" alt="React JS"></div>
+      <div class="skill-box"><img src="https://cdn.worldvectorlogo.com/logos/react-native-1.svg" alt="React Native"></div>
+      <div class="skill-box"><img src="https://juststickers.in/wp-content/uploads/2019/07/nodejs-hex.png" alt="Node.js"></div>
+      <div class="skill-box"><img src="https://cdn.worldvectorlogo.com/logos/mysql-logo-pure.svg" alt="mysql"></div>
+      <div class="skill-box"><img src="https://cdn-icons-png.flaticon.com/512/5968/5968282.png" alt="Java"></div>
+      <div class="skill-box"><img src="https://cdn.iconscout.com/icon/free/png-256/free-mongodb-icon-svg-download-png-1175138.png" alt="MongoDB"></div>
+      <div class="skill-box"><img src="https://download.blender.org/branding/community/blender_community_badge_orange.png" alt="blender"></div>
+      <div class="skill-box"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Figma-logo.svg/330px-Figma-logo.svg.png" alt="figma"></div>
+      <div class="skill-box"><img src="https://pngmax.com/_next/image?url=https%3A%2F%2Fpng-max.s3.ap-south-1.amazonaws.com%2Flow%2Ffb8a3aaf-7088-4d5e-a069-5157ecc015c2.png&w=1200&q=75" alt="capcut"></div>
+      <div class="skill-box"><img src="https://pngimg.com/d/php_PNG29.png" alt="php"></div>
+      <div class="skill-box"><img src="https://upload.wikimedia.org/wikipedia/commons/4/4d/DaVinci_Resolve_Studio.png" alt="davinci"></div>
+      <div class="skill-box"><img src="https://cdn.pixabay.com/photo/2024/03/31/02/11/python-8665904_1280.png" alt="python"></div>
+      <div class="skill-box"><img src="https://cdn.pixabay.com/photo/2013/07/13/12/18/camera-159582_1280.png" alt="filming"></div>
+      <!-- Duplicate for seamless infinite loop -->
+      <div class="skill-box"><img src="https://cdn-icons-png.flaticon.com/512/732/732212.png" alt="HTML"></div>
+      <div class="skill-box"><img src="https://cdn-icons-png.flaticon.com/512/732/732190.png" alt="CSS"></div>
+      <div class="skill-box"><img src="https://cdn-icons-png.flaticon.com/512/5968/5968292.png" alt="JavaScript"></div>
+      <div class="skill-box"><img src="https://cdn.iconscout.com/icon/free/png-512/react-1-282599.png" alt="React JS"></div>
+      <div class="skill-box"><img src="https://cdn.worldvectorlogo.com/logos/react-native-1.svg" alt="React Native"></div>
+      <div class="skill-box"><img src="https://juststickers.in/wp-content/uploads/2019/07/nodejs-hex.png" alt="Node.js"></div>
+      <div class="skill-box"><img src="https://cdn.worldvectorlogo.com/logos/mysql-logo-pure.svg" alt="mysql"></div>
+      <div class="skill-box"><img src="https://cdn-icons-png.flaticon.com/512/5968/5968282.png" alt="Java"></div>
+      <div class="skill-box"><img src="https://cdn.iconscout.com/icon/free/png-256/free-mongodb-icon-svg-download-png-1175138.png" alt="MongoDB"></div>
+      <div class="skill-box"><img src="https://download.blender.org/branding/community/blender_community_badge_orange.png" alt="blender"></div>
+      <div class="skill-box"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Figma-logo.svg/330px-Figma-logo.svg.png" alt="figma"></div>
+      <div class="skill-box"><img src="https://pngmax.com/_next/image?url=https%3A%2F%2Fpng-max.s3.ap-south-1.amazonaws.com%2Flow%2Ffb8a3aaf-7088-4d5e-a069-5157ecc015c2.png&w=1200&q=75" alt="capcut"></div>
+      <div class="skill-box"><img src="https://pngimg.com/d/php_PNG29.png" alt="php"></div>
+      <div class="skill-box"><img src="https://upload.wikimedia.org/wikipedia/commons/4/4d/DaVinci_Resolve_Studio.png" alt="davinci"></div>
+      <div class="skill-box"><img src="https://cdn.pixabay.com/photo/2024/03/31/02/11/python-8665904_1280.png" alt="python"></div>
+      <div class="skill-box"><img src="https://cdn.pixabay.com/photo/2013/07/13/12/18/camera-159582_1280.png" alt="filming"></div>
+    </div>
+  </div>
+</div>
+
+
+    <div class="socials">
+      <a href="https://github.com/Manav-0n-Site" class="github" target="_blank" rel="noopener noreferrer">
+  <img src="https://cdn-icons-png.flaticon.com/512/733/733553.png" alt="GitHub">
+</a>
+
+
+<a href="https://www.instagram.com/manav_0n_site/" 
+   class="instagram" 
+   target="_blank" 
+   rel="noopener noreferrer">
+  <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" 
+       alt="Instagram">
+</a>
+
+
+
+<a href="https://www.linkedin.com/messaging/compose/?recipient=manav-singh-5171b5378" 
+   class="linkedin" 
+   target="_blank" 
+   rel="noopener noreferrer">
+  <img src="https://cdn-icons-png.flaticon.com/512/3536/3536505.png" alt="LinkedIn">
+</a>
+
+
+      <a href="https://wa.me/917428641842" class="whatsapp" target="_blank">
+  <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp">
+</a>
+<a href="https://mail.google.com/mail/?view=cm&fs=1&to=manav222chandila@gmail.com&su=Hello%20Manav&body=I%20just%20visited%20your%20portfolio%20and%20wanted%20to%20connect." target="_blank" class="gmail">
+  <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="Gmail">
+</a>
+
+
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
