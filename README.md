@@ -2,6 +2,11 @@
 
 ![Profile Banner](https://images.template.net/wp-content/uploads/2016/11/Cartoon-Gif-Animated1.gif)
 
+## 📜 License
+
+This project is licensed under the [MIT License](LICENSE).
+
+
 ## 🎯 Overview  
 Welcome to **Manav-0n-Site** – a fully interactive personal portfolio with a unique **start screen**, **dynamic typing effect**, **background music toggle**, and **light/dark theme switcher**!  
 This project is all about **creativity + functionality**, providing a smooth, modern user experience.
@@ -80,3 +85,4 @@ Let's connect & build something amazing together! 🚀
 
 ✅ Just copy and paste this into your `README.md` file — it’s ready to go.  
 Would you like me to add **badges (visitor count, GitHub stars, tech stack logos)** at the very top for extra style? (Makes it look like a pro open-source repo 🚀)
+
