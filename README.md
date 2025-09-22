@@ -1,3 +1,8 @@
+## 📜 License
+
+This project is licensed under the [MIT License](LICENSE).
+
+
 # 👨‍💻 Manav | 🌐 Manav-0n-Site
 
 ![Profile Banner](https://images.template.net/wp-content/uploads/2016/11/Cartoon-Gif-Animated1.gif)
@@ -80,3 +85,4 @@ Let's connect & build something amazing together! 🚀
 
 ✅ Just copy and paste this into your `README.md` file — it’s ready to go.  
 Would you like me to add **badges (visitor count, GitHub stars, tech stack logos)** at the very top for extra style? (Makes it look like a pro open-source repo 🚀)
+
