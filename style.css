@@ -1,0 +1,369 @@
+ * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: url('https://images.template.net/wp-content/uploads/2016/11/Cartoon-Gif-Animated1.gif') no-repeat center center fixed;
+      background-size: cover;
+      color: white;
+      font-family: "Poppins", sans-serif;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow-y: auto;
+      position: relative;
+    }
+
+    body::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.65);
+      z-index: 0;
+    }
+
+    .start-screen {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      backdrop-filter: blur(10px);
+      background: rgba(0, 0, 0, 0.7);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 999;
+      flex-direction: column;
+      text-align: center;
+      transition: opacity 0.5s ease;
+      cursor: none;
+    }
+
+    .start-vector { max-width: 150px; margin-bottom: 15px; }
+    .start-text { font-size: 1.1rem; font-weight: bold; color: white; opacity: 0.85; letter-spacing: 1px; animation: blink 0.7s infinite alternate; }
+    @keyframes blink { from { opacity: 0.1; } to { opacity: 1; } }
+
+    .cursor-dot {
+      position: fixed; width: 12px; height: 12px;
+      background: #b968f5; border-radius: 50%;
+      pointer-events: none; transform: translate(-50%, -50%);
+      z-index: 10000;
+    }
+
+    .trail {
+      position: fixed; width: 40px; height: 40px;
+      border-radius: 50%; pointer-events: none;
+      transform: translate(-50%, -50%) scale(1);
+      filter: blur(8px); opacity: 0.95;
+      animation: fadeOut 1s ease-out forwards;
+      background: radial-gradient(circle,
+        rgba(249, 248, 250, 0.9) 0%,
+        rgba(185, 104, 245, 0.3) 70%,
+        transparent 100%);
+      z-index: 9999;
+    }
+    @keyframes fadeOut { to { opacity: 0; transform: translate(-50%, -50%) scale(2); filter: blur(15px); } }
+
+    .container {
+      z-index: 2; text-align: center;
+      background: rgba(0, 0, 0, 0.5); backdrop-filter: blur(10px);
+      padding: 30px; border-radius: 20px;
+      max-width: 750px; width: 90%;
+      box-shadow: 0 0 30px rgba(255,255,255,0.1);
+      opacity: 0; transform: scale(0.95);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+      position: relative;
+      height: 90vh;
+      overflow:hidden; /* allow internal scroll if needed */
+}
+
+    .container.show { opacity: 1; transform: scale(1); }
+
+    @media screen and (max-height: 800px), screen and (max-width: 768px) {
+  .container {
+    height: auto;       /* adapt to content */
+    max-height: 90vh;   /* do not exceed viewport */
+    overflow-y: auto;   /* allow internal scroll */
+    padding: 20px;
+  }
+}
+
+
+    /* Head Bar */
+    .head-bar {
+      display: flex; justify-content: space-between; align-items: center;
+      background: rgba(255,255,255,0.08); border-radius: 12px;
+      padding: 8px 15px; margin-bottom: 15px;
+      font-size: 0.9rem; text-shadow: 0px 0px 5px rgba(255,255,255,0.6);
+    }
+    .head-bar i { margin-right: 5px; }
+
+    /* Rotating messages (the one change) */
+    .rotating-messages {
+      flex: 1;
+      text-align: center;
+      font-size: 0.85rem;
+      font-weight: bold;
+      opacity: 0;
+      transform: translateY(10px);
+      transition: opacity 0.6s ease, transform 0.6s ease, color 0.4s ease;
+      min-width: 160px;
+    }
+    .rotating-messages.show { opacity: 1; transform: translateY(0); }
+
+    .profile-pic {
+      width: 110px; height: 110px; border-radius: 50%;
+      object-fit: cover; margin-bottom: 15px;
+      animation: float 4s ease-in-out infinite;
+    }
+    @keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+
+    h1 { font-size: 1.8rem; margin-bottom: 5px; text-shadow: 0px 0px 10px rgba(255,255,255,0.8); }
+    .quote { font-style: italic; font-size: 1rem; margin-bottom: 15px; opacity: 0.85; min-height: 20px; text-shadow: 0px 0px 8px rgba(255,255,255,0.6); }
+
+    .cursor { display: inline-block; margin-left: 2px; animation: blinkCursor 0.6s infinite alternate; }
+    @keyframes blinkCursor { from { opacity: 1; } to { opacity: 0; } }
+
+    .card { background: rgba(255,255,255,0.1); padding: 10px; border-radius: 15px; margin-bottom: 15px; text-align: left; position: relative; }
+    .card-title { position: absolute; top: 5px; left: 10px; font-weight: bold; font-size: 0.75rem; text-shadow: 0 0 5px yellow; opacity: 0.9; }
+
+    .projects-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(70px,1fr)); gap: 5px; margin-top: 25px; margin-bottom: 10px; }
+    .project-box { display:flex; justify-content:center; align-items:center; background: rgba(255,255,255,0.15); height:40px; border-radius:10px; transition: transform 0.3s ease, background 0.3s ease; text-decoration:none; color:white; font-size:0.6rem; font-weight:bold;}
+    .project-box:hover { transform: scale(1.08); background: rgba(110,110,106,0.3); }
+
+    .socials { display:flex; justify-content:center; gap:25px; margin-top:10px; }
+    .socials a img { width:30px; transition: transform 0.3s ease, filter 0.3s ease; border-radius:8px; }
+
+    .stats-left i { color: #00cfff; font-size: larger; }
+    .stats-right i { color: rgb(238,229,229); transition: color 0.3s ease; font-size: larger; }
+
+    /* Permanent glow effect for each social icon */
+    .socials a.github img { filter: brightness(0) saturate(100%) invert(32%) sepia(61%) saturate(4420%) hue-rotate(253deg) brightness(90%) contrast(90%) drop-shadow(0 0 10px #6b3fb5) drop-shadow(0 0 20px #6b3fb5); }
+    .socials a.instagram img { filter: drop-shadow(0 0 10px #e1306c) drop-shadow(0 0 20px #e1306c); }
+    .socials a.twitter img { filter: drop-shadow(0 0 10px #1da1f2) drop-shadow(0 0 20px #1da1f2); }
+    .socials a.linkedin img { filter: drop-shadow(0 0 10px #0077b5) drop-shadow(0 0 20px #0077b5); }
+    .socials a.discord img { filter: drop-shadow(0 0 10px #5865F2) drop-shadow(0 0 20px #5865F2); }
+    .socials a.whatsapp img { filter: drop-shadow(0 0 10px #25D366) drop-shadow(0 0 20px #25D366); }
+    .socials a.gmail img { filter: drop-shadow(0 0 10px #d93025) drop-shadow(0 0 20px #d93025); }
+    .socials a img:hover { transform: scale(1.2); }
+
+    /* Theme Toggle Button */
+.theme-toggle {
+  position: fixed;
+  top: 15px;
+  right: 15px;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  border-radius: 50%;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 10000;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.theme-toggle:hover {
+  background: rgba(255, 255, 255, 0.4);
+  transform: scale(1.1);
+}
+
+/* ------------------- LIGHT MODE REFINED ------------------- */
+body.light-mode {
+  background-color: #fdf6f0 !important; /* warm white background */
+  color: #222; /* default text color */
+}
+
+body.light-mode::before {
+  background: rgba(255, 255, 255, 0.1); /* soft overlay */
+}
+
+body.light-mode .container {
+  background: rgba(255, 255, 255, 0.85);
+  color: #222;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+body.light-mode .head-bar {
+  background: #ffffff; /* solid white */
+  color: #000; /* black text/icons */
+  text-shadow: none; 
+}
+
+body.light-mode .card {
+  background: rgba(255,255,255,0.9);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+}
+
+body.light-mode .card-title {
+  color: #000; /* black titles */
+  text-shadow: none;
+}
+
+body.light-mode .rotating-messages {
+  color: #000; /* comments text in black */
+}
+
+body.light-mode .project-box {
+  background: rgba(0,0,0,0.05);
+  color: #222;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+body.light-mode .project-box:hover {
+  background: rgba(128,128,128,0.3); /* grey hover */
+  transform: scale(1.08);
+  box-shadow: 0 3px 12px rgba(0,0,0,0.1);
+}
+
+/* Social icons glow in light mode */
+body.light-mode .socials a.github img {
+  filter: drop-shadow(0 0 8px #6b3fb5) drop-shadow(0 0 16px #6b3fb5);
+}
+body.light-mode .socials a.instagram img {
+  filter: drop-shadow(0 0 8px #e1306c) drop-shadow(0 0 16px #e1306c);
+}
+body.light-mode .socials a.twitter img {
+  filter: drop-shadow(0 0 8px #1da1f2) drop-shadow(0 0 16px #1da1f2);
+}
+body.light-mode .socials a.linkedin img {
+  filter: drop-shadow(0 0 8px #0077b5) drop-shadow(0 0 16px #0077b5);
+}
+
+
+.music-toggle {
+  position: fixed;
+  top: 15px;
+  left: 15px; /* opposite side of theme toggle */
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  border-radius: 50%;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 10000;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.music-toggle:hover {
+  background: rgba(255, 255, 255, 0.4);
+  transform: scale(1.1);
+}
+
+
+/* Default dark mode (white icon) */
+.music-toggle i {
+  font-size: 1.2rem;
+  color: white;
+  transition: color 0.3s ease;
+}
+
+/* Light mode (black icon) */
+body.light-mode .music-toggle i {
+  color: #000;
+}
+
+
+#themeToggle,
+#musicToggle {
+  display: none; /* hidden initially */
+}
+
+.rotating-messages {
+    flex: 1;
+    text-align: center;
+    font-size: 0.85rem;
+    font-weight: bold;
+    color: #fff;
+    min-width: 180px;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+@media screen and (max-width: 768px) {
+    #rotatingMessages {
+        opacity: 0 !important;
+        transform: translateY(0) !important;
+        transition: none !important;
+        min-width: 50px;
+    }
+}
+
+.skills-card {
+  margin-top: 20px; /* little space from projects card */
+}
+
+.skills-slider {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  margin-top: 25px;
+}
+
+.skills-track {
+  display: flex;
+  gap: 10px;
+  width: max-content;
+  animation: scrollSkills 18s linear infinite;
+}
+
+.skill-box {
+  background: rgba(255,255,255,0.15);
+  min-width: 60px;
+  height: 60px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.skill-box img {
+  width: 60%;
+  height: 60%;
+  object-fit: contain;
+  filter: drop-shadow(0 0 5px rgba(255,255,255,0.5));
+}
+
+.skill-box:hover {
+  transform: scale(1.1);
+  background: rgba(110,110,106,0.3);
+}
+
+@keyframes scrollSkills {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+  /* Floating heart animation */
+  .floating-heart {
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1.5rem;
+    animation: floatUp 1.2s ease-out forwards;
+  }
+
+  @keyframes floatUp {
+    0% { opacity: 1; transform: translate(-50%, 0); }
+    100% { opacity: 0; transform: translate(-50%, -50px); }
+  }
+
+  /* Like icon turns red when liked */
+  .liked-icon {
+    color: red;
+    transition: color 0.3s ease;
+  }
+
+  .bounce {
+    animation: bounceAnim 0.4s ease;
+  }
+
+  @keyframes bounceAnim {
+    0% { transform: scale(1); }
+    30% { transform: scale(1.3); }
+    100% { transform: scale(1); }
+  }
+
